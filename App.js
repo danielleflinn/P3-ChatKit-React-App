@@ -1,5 +1,5 @@
 import React from 'react'
-import Chatkit from '@pusher/chatkit-client'
+// import Chatkit from '@pusher/chatkit'
 import MessageList from './components/MessageList'
 import SendMessageForm from './components/SendMessageForm'
 import RoomList from './components/RoomList'
@@ -18,7 +18,7 @@ class App extends React.Component {
             joinedRooms: []
         }
         this.sendMessage = this.sendMessage.bind(this)
-        this.subscribeToRoomMultipart = this.subscribeToRoomMultipart.bind(this)
+        this.subscribeToRoom = this.subscribeToRoom.bind(this)
         this.getRooms = this.getRooms.bind(this)
         this.createRoom = this.createRoom.bind(this)
     } 
@@ -26,7 +26,7 @@ class App extends React.Component {
     componentDidMount() {
         const chatManager = new Chatkit.ChatManager({
             instanceLocator,
-            userId: 'daniflinn',
+            userId: 'emilycone',
             tokenProvider: new Chatkit.TokenProvider({
                 url: tokenUrl
             })
@@ -51,9 +51,9 @@ class App extends React.Component {
         .catch(err => console.log('error on joinableRooms: ', err))
     }
     
-    subscribeToRoomMultipart(roomId) {
+    subscribeToRoom(roomId) {
         this.setState({ messages: [] })
-        this.currentUser.subscribeToRoomMultipart({
+        this.currentUser.subscribeToRoom({
             roomId: roomId,
             hooks: {
                 onMessage: message => {
@@ -61,6 +61,7 @@ class App extends React.Component {
                         messages: [...this.state.messages, message]
                     })
                 }
+                
             }
         })
         .then(room => {
@@ -73,7 +74,7 @@ class App extends React.Component {
     }
     
     sendMessage(text) {
-        this.currentUser.sendMessage({
+        this.currentUser.sendSimpleMessage({
             text,
             roomId: this.state.roomId
         })
@@ -83,7 +84,9 @@ class App extends React.Component {
         this.currentUser.createRoom({
             name
         })
-        .then(room => this.subscribeToRoomMultipart(room.id))
+        .then(room => {
+            this.subscribeToRoom(room.id)
+        })
         .catch(err => console.log('error with createRoom: ', err))
     }
     
@@ -91,7 +94,7 @@ class App extends React.Component {
         return (
             <div className="app">
                 <RoomList
-                    subscribeToRoomMultipart={this.subscribeToRoomMultipart}
+                    subscribeToRoom={this.subscribeToRoom}
                     rooms={[...this.state.joinableRooms, ...this.state.joinedRooms]}
                     roomId={this.state.roomId} />
                 <MessageList 

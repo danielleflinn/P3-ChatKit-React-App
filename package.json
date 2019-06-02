@@ -1,33 +1,20 @@
 {
-  "name": "myjson7774321",
+  "name": "cy6yqBud",
   "dependencies": {
-    "@pusher/chatkit-client": "^1.5.0",
-    "@pusher/chatkit-server": "^1.1.0",
     "react": "16.0.0",
-    "react-dom": "16.0.1"
+    "react-dom": "16.0.0",
+    "@pusher/chatkit": "0.7.15",
+    "@pusher/chatkit-client": "1.5.0"
   },
   "devDependencies": {
+    "webpack": "^2.0",
     "babel-core": "^6.0",
     "babel-loader": "^7.0",
     "babel-preset-env": "*",
-    "babel-preset-react": "*",
-    "webpack": "^2.7.0"
+    "babel-preset-react": "*"
   },
   "scripts": {
     "build": "webpack",
     "watch": "webpack -w"
-  },
-  "description": "Quick start:",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/danielleflinn/P3-ChatKit-React-App.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/danielleflinn/P3-ChatKit-React-App/issues"
-  },
-  "homepage": "https://github.com/danielleflinn/P3-ChatKit-React-App/blob/master/README.md"
+  }
 }
