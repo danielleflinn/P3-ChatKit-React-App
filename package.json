@@ -22,12 +22,12 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/valdynhunt/react-chatkit-app.git"
+    "url": "https://github.com/danielleflinn/P3-ChatKit-React-App.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/valdynhunt/react-chatkit-app/issues"
+    "url": "https://github.com/danielleflinn/P3-ChatKit-React-App/issues"
   },
-  "homepage": "https://github.com/valdynhunt/react-chatkit-app#readme"
+  "homepage": "https://github.com/danielleflinn/P3-ChatKit-React-App/blob/master/README.md"
 }
