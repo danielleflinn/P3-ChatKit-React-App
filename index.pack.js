@@ -1134,7 +1134,7 @@ var App = function (_React$Component) {
 
             var chatManager = new Chatkit.ChatManager({
                 instanceLocator: _config.instanceLocator,
-                userId: 'emilycone',
+                userId: 'daniflinn',
                 tokenProvider: new Chatkit.TokenProvider({
                     url: _config.tokenUrl
                 })
